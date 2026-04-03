@@ -1,0 +1,283 @@
+---
+import { Image } from "astro:assets";
+import profileImage from "../assets/profile.jpg";
+
+---
+
+<section class="hero-section">
+  <div class="informacion-header">
+    <h1 class="titulo-contenedor">
+      <span id="texto-animado"></span><span class="cursor blink">|</span>
+    </h1>
+    <h3>Desarrollador Backend y Frontend</h3>
+    <div class="acciones-hero">
+      <a href="https://github.com/AlanFernandezCalleja" target="_blank" rel="noopener noreferrer" class="btn btn-github">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+        GitHub
+      </a>
+      
+      <a href="/storage/" download="cv.pdf" class="btn btn-cv">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+        Descargar CV
+      </a>
+    </div>
+  </div>
+
+  <div class="contenedor-imagen">
+    <div class="contenedor-contenedor-imagen">
+      <Image
+      src={profileImage}
+      alt="Foto de perfil de Mauro Dev"
+      format="jpg"
+      class="imagen-perfil"
+    />
+    </div>
+    
+  </div>
+</section>
+
+<style>
+  /* Estilos base de la sección */
+  .hero-section {
+    background: transparent;
+
+    display: flex;
+    flex-direction: column-reverse; /* En celulares, el texto va abajo de la imagen */
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 4rem 12rem;
+    max-width: 60vw;
+    margin: 0 auto;
+    font-family:
+      system-ui,
+      -apple-system,
+      sans-serif;
+    
+  }
+
+  /* Estilos del texto */
+  .informacion-header {
+    text-align: center;
+  }
+
+  /* Estilo del cursor parpadeante */
+  /* Estilo del cursor parpadeante */
+  .cursor {
+    font-weight: 400;
+    color: #1a1a1a; /* Solo dejamos este color */
+    margin-left: 2px;
+  }
+
+  /* Aquí llamamos a la animación correcta: "parpadear" */
+  .blink {
+    animation: parpadear 0.8s step-end infinite;
+  }
+
+  /* Definimos la animación una sola vez usando opacidad */
+  @keyframes parpadear {
+    from, to {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .informacion-header h1 {
+    cursor: default;
+    user-select: none;
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+    color: #1a1a1a;
+    line-height: 1.1;
+    letter-spacing: -1px;
+  }
+
+  .informacion-header h3 {
+    cursor: default;
+    user-select: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #555;
+    margin-top: 0.5rem;
+  }
+  .acciones-hero {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-github {
+    background-color: #24292e;
+    color: white;
+  }
+
+  .btn-github:hover {
+    background-color: #444;
+    
+  }
+
+  .btn-cv {
+    background-color: #007bff; /* Color azul, puedes cambiarlo por el de tu marca */
+    color: white;
+  }
+
+  .btn-cv:hover {
+    background-color: #0056b3;
+    
+  }
+
+  /* Para que se vea bien en móviles */
+  @media (max-width: 768px) {
+    .hero-section{
+      padding-top: 50px;
+      padding-bottom: 75px;
+    }
+    .acciones-hero {
+      flex-direction: column;
+    }
+  }
+
+
+  /* Estilos del contenedor de la imagen */
+  .contenedor-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+  .contenedor-contenedor-imagen {
+  position: relative;
+  width: 268px; /* Un poco más grande que la imagen */
+  height: 268px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedor-contenedor-imagen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 5px dashed black  ; /* Cambia el color aquí */
+  animation: rotar 60s linear infinite;
+}
+
+.imagen-perfil {
+  width: 245px;
+  height: 245px;
+  object-fit: cover;
+  border-radius: 50%;
+  z-index: 1; /* Para que esté por encima del borde */
+  background: white;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+  will-change: transform;
+}
+.imagen-perfil:hover{
+  transform: scale(1.05);
+  
+}
+
+@keyframes rotar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+  
+  /* .imagen-perfil {
+    width: 250px;
+    height: 250px;
+    object-fit: cover; 
+    border-radius: 50%; 
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04); 
+    border: 4px solid #ffffff;
+  } */
+
+  /* En pantallas grandes, alineamos el texto a la izquierda */
+  @media (min-width: 768px) {
+    
+    .informacion-header {
+      align-items: flex-start;
+    }
+  }
+
+  
+  /* Diseño Responsive: Para pantallas medianas (tablets) y grandes (computadoras) */
+  @media (min-width: 768px) {
+    .hero-section {
+      flex-direction: row; /* Texto a la izquierda, imagen a la derecha */
+      justify-content: space-between;
+      padding: 6rem 2rem;
+      
+      
+    }
+
+    .informacion-header {
+      text-align: left;
+    }
+
+    .informacion-header h1 {
+      font-size: 4rem; /* Texto más grande en escritorio */
+    }
+
+    
+  }
+</style>
+<script>
+  // Envolvemos todo en una función para mantener limpio el entorno global
+  const iniciarAnimacion = () => {
+    const elementoTexto = document.getElementById("texto-animado");
+
+    // Medida de seguridad: si no existe el elemento, no hacemos nada
+    if (!elementoTexto) return;
+
+    const textoFinal = "Mauro Dev";
+    let indice = 0;
+
+    // Limpiamos el texto por si acaso
+    elementoTexto.textContent = "";
+
+    // Creamos un intervalo que se ejecuta cada 150 milisegundos
+    const intervalo = setInterval(() => {
+      if (indice < textoFinal.length) {
+        // Agregamos la letra actual
+        elementoTexto.textContent += textoFinal.charAt(indice);
+        indice++;
+      } else {
+        // Cuando terminamos de escribir, detenemos el intervalo
+        clearInterval(intervalo);
+      }
+    }, 150); // Puedes cambiar el '150' para que escriba más rápido o más lento
+  };
+
+  // Ejecutamos la función
+  iniciarAnimacion();
+</script>
