@@ -28,10 +28,21 @@
 }
 body {
 	font-family: "Atkinson", sans-serif;
+	
+	text-align: left;
+	/* background: linear-gradient(var(--gray-gradient)) no-repeat; */
+	
+	/*  */
+	display: flex;
+	flex-direction: column;
+	
+	
+
+	
+
 	margin: 0;
 	padding: 0;
-	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
+	
 	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
@@ -40,8 +51,10 @@ body {
 	line-height: 1.7;
 }
 main {
-	width: 720px;
-	max-width: calc(100% - 2em);
+	
+	/* width: 720px; */
+	width: 78%;
+	max-width: 1200px;
 	margin: auto;
 	padding: 7em 1em;
 }
