@@ -5,6 +5,7 @@ import Header from '../components/Header.astro';
 import HeadPortfolio from '../components/HeadPortfolio.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { ClientRouter } from 'astro:transitions';
+import Landing from './main/landing.astro';
 ---
 
 <!doctype html>
@@ -17,7 +18,7 @@ import { ClientRouter } from 'astro:transitions';
 		
 		<Header />
 		<HeadPortfolio></HeadPortfolio>
-		
+		<Landing />
 		
 		<Footer />
 	</body>
