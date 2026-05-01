@@ -3,3 +3,5 @@
 
 export const SITE_TITLE = 'Mau /Dev';
 export const SITE_DESCRIPTION = 'Este es mi portafolio, en donde muestro mis proyectos y tambien todo sobre mi conocimiento en desarrollo Backend, Frontend, Dispositivos Móviles y Videojuegos';
+
+
